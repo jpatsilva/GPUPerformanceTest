@@ -1,0 +1,42 @@
+==1923465== NVPROF is profiling process 1923465, command: ./2mm.out
+==1923465== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==1923465== Profiling application: ./2mm.out
+==1923465== Profiling result:
+==1923465== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"global_hit_rate","Global Hit Rate in unified l1/tex",94.683404%,94.683404%,94.683404%
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"l2_tex_hit_rate","L2 Cache Hit Rate",99.846262%,99.846262%,99.846262%
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"global_load_requests","Total number of global load requests from Multiprocessor",67108864,67108864,67108864
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"global_store_requests","Total number of global store requests from Multiprocessor",33587200,33587200,33587200
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"gld_transactions","Global Load Transactions",167772160,167772160,167772160
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"gst_transactions","Global Store Transactions",134348800,134348800,134348800
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"gld_transactions_per_request","Global Load Transactions Per Request",2.500000,2.500000,2.500000
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"gst_transactions_per_request","Global Store Transactions Per Request",4.000000,4.000000,4.000000
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"l2_read_transactions","L2 Read Transactions",15915255,15915255,15915255
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"l2_write_transactions","L2 Write Transactions",134348842,134348842,134348842
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"dram_read_transactions","Device Memory Read Transactions",427450,427450,427450
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"dram_write_transactions","Device Memory Write Transactions",211102,211102,211102
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"gld_throughput","Global Load Throughput",1525.681026GB/s,1525.681026GB/s,1525.681026GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"gst_throughput","Global Store Throughput",1221.736759GB/s,1221.736759GB/s,1221.736759GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"l2_read_throughput","L2 Throughput (Reads)",144.729630GB/s,144.729630GB/s,144.729630GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"l2_write_throughput","L2 Throughput (Writes)",1221.737141GB/s,1221.737141GB/s,1221.737141GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"dram_read_throughput","Device Memory Read Throughput",3.887131GB/s,3.887131GB/s,3.887131GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel1(int, int, int, int, float, float, float*, float*, float*)",1,"dram_write_throughput","Device Memory Write Throughput",1.919713GB/s,1.919713GB/s,1.919713GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"global_hit_rate","Global Hit Rate in unified l1/tex",94.688578%,94.688578%,94.688578%
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"l2_tex_hit_rate","L2 Cache Hit Rate",99.769021%,99.769021%,99.769021%
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"global_load_requests","Total number of global load requests from Multiprocessor",67141632,67141632,67141632
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"global_store_requests","Total number of global store requests from Multiprocessor",33587200,33587200,33587200
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"gld_transactions","Global Load Transactions",167903232,167903232,167903232
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"gst_transactions","Global Store Transactions",134348800,134348800,134348800
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"gld_transactions_per_request","Global Load Transactions Per Request",2.500732,2.500732,2.500732
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"gst_transactions_per_request","Global Store Transactions Per Request",4.000000,4.000000,4.000000
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"l2_read_transactions","L2 Read Transactions",16042601,16042601,16042601
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"l2_write_transactions","L2 Write Transactions",134348842,134348842,134348842
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"dram_read_transactions","Device Memory Read Transactions",421814,421814,421814
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"dram_write_transactions","Device Memory Write Transactions",190400,190400,190400
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"gld_throughput","Global Load Throughput",1533.214525GB/s,1533.214525GB/s,1533.214525GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"gst_throughput","Global Store Throughput",1226.810998GB/s,1226.810998GB/s,1226.810998GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"l2_read_throughput","L2 Throughput (Reads)",146.493600GB/s,146.493600GB/s,146.493600GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"l2_write_throughput","L2 Throughput (Writes)",1226.811382GB/s,1226.811382GB/s,1226.811382GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"dram_read_throughput","Device Memory Read Throughput",3.851810GB/s,3.851810GB/s,3.851810GB/s
+"Tesla V100S-PCIE-32GB (0)","mm2_kernel2(int, int, int, int, float, float, float*, float*, float*)",1,"dram_write_throughput","Device Memory Write Throughput",1.738645GB/s,1.738645GB/s,1.738645GB/s
