@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuickstartInteractiveDataDisplay" xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="GPU Performance Visual Data" Height="450" Width="800">
     <Grid>
         <d3:Chart Name="myChart">
             <Grid Name="myGrid"/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot.Styles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,57 +34,76 @@ namespace QuickstartInteractiveDataDisplay
 
         private void Scatter()
         {
-            // generate some random X and Y data
-            //int pointCount = 500;
-            double[] xs1 = new double[10];
-            xs1[0] = Convert.ToDouble(pd.dataObjects.ElementAt(0).dispatchValue);
-            xs1[1] = Convert.ToDouble(pd.dataObjects.ElementAt(1).dispatchValue);
-            xs1[2] = Convert.ToDouble(pd.dataObjects.ElementAt(2).dispatchValue);
-            xs1[3] = Convert.ToDouble(pd.dataObjects.ElementAt(3).dispatchValue);
-            xs1[4] = Convert.ToDouble(pd.dataObjects.ElementAt(4).dispatchValue);
-            xs1[5] = Convert.ToDouble(pd.dataObjects.ElementAt(5).dispatchValue);
-            xs1[6] = Convert.ToDouble(pd.dataObjects.ElementAt(6).dispatchValue);
-            xs1[7] = Convert.ToDouble(pd.dataObjects.ElementAt(7).dispatchValue);
-            xs1[8] = Convert.ToDouble(pd.dataObjects.ElementAt(8).dispatchValue);
-            xs1[9] = Convert.ToDouble(pd.dataObjects.ElementAt(9).dispatchValue);
+            int objectCount = pd.dataObjects.Count;
+            // Populate x-axis with start times.
+            double[] xs1 = new double[objectCount];
+            int i = 0;
+            foreach(DataObject dObject in pd.dataObjects)
+            {
+                xs1[i] = Convert.ToDouble(dObject.startTimeValue);
+                i++;
+            }
 
-            //double[] ys1 = RandomWalk(pointCount);
-            double[] ys1 = new double[10];
-            ys1[0] = Convert.ToDouble(pd.dataObjects.ElementAt(0).dispatchValue);
-            ys1[1] = Convert.ToDouble(pd.dataObjects.ElementAt(1).dispatchValue);
-            ys1[2] = Convert.ToDouble(pd.dataObjects.ElementAt(2).dispatchValue);
-            ys1[3] = Convert.ToDouble(pd.dataObjects.ElementAt(3).dispatchValue);
-            ys1[4] = Convert.ToDouble(pd.dataObjects.ElementAt(4).dispatchValue);
-            ys1[5] = Convert.ToDouble(pd.dataObjects.ElementAt(5).dispatchValue);
-            ys1[6] = Convert.ToDouble(pd.dataObjects.ElementAt(6).dispatchValue);
-            ys1[7] = Convert.ToDouble(pd.dataObjects.ElementAt(7).dispatchValue);
-            ys1[8] = Convert.ToDouble(pd.dataObjects.ElementAt(8).dispatchValue);
-            ys1[9] = Convert.ToDouble(pd.dataObjects.ElementAt(9).dispatchValue);
+            // Populate y-axis with process times.
+            double[] ys1 = new double[objectCount];
+            i = 0;
+            foreach (DataObject dObject in pd.dataObjects)
+            {
+                ys1[i] = Convert.ToDouble(dObject.processTimeValue);
+                i++;
+            }
 
+            ////double[] xs2 = RandomWalk(pointCount);
+            //double[] xs2 = new double[10];
+            //xs2[0] = 1;
+            //xs2[1] = 2;
+            //xs2[2] = 3;
+            //xs2[3] = 4;
+            //xs2[4] = 5;
+            //xs2[5] = 6;
+            //xs2[6] = 7;
+            //xs2[7] = 8;
+            //xs2[8] = 9;
+            //xs2[9] = 10;
 
-            //double[] xs2 = RandomWalk(pointCount);
-            //double[] ys2 = RandomWalk(pointCount);
-            int pointCount = 10;
+            ////double[] ys2 = RandomWalk(pointCount);
+            //double[] ys2 = new double[10];
+            //ys2[0] = Convert.ToDouble(pd.dataObjects.ElementAt(0).endTimeValue);
+            //ys2[1] = Convert.ToDouble(pd.dataObjects.ElementAt(1).endTimeValue);
+            //ys2[2] = Convert.ToDouble(pd.dataObjects.ElementAt(2).endTimeValue);
+            //ys2[3] = Convert.ToDouble(pd.dataObjects.ElementAt(3).endTimeValue);
+            //ys2[4] = Convert.ToDouble(pd.dataObjects.ElementAt(4).endTimeValue);
+            //ys2[5] = Convert.ToDouble(pd.dataObjects.ElementAt(5).endTimeValue);
+            //ys2[6] = Convert.ToDouble(pd.dataObjects.ElementAt(6).endTimeValue);
+            //ys2[7] = Convert.ToDouble(pd.dataObjects.ElementAt(7).endTimeValue);
+            //ys2[8] = Convert.ToDouble(pd.dataObjects.ElementAt(8).endTimeValue);
+            //ys2[9] = Convert.ToDouble(pd.dataObjects.ElementAt(9).endTimeValue);
+
+            int pointCount = objectCount;
             double[] sizes = Consecutive(pointCount, 10, 0);
 
             // create the lines and describe their styling 
             var line1 = new InteractiveDataDisplay.WPF.CircleMarkerGraph()
+            //var line1 = new InteractiveDataDisplay.WPF.LineGraph()
             {
                 Color = new SolidColorBrush(Colors.Blue),
-                Description = "Group A",
+                Description = "Process Time",
                 StrokeThickness = 1
             };
 
-            var line2 = new InteractiveDataDisplay.WPF.CircleMarkerGraph()
-            {
-                Color = new SolidColorBrush(Colors.Red),
-                Description = "Group B",
-                StrokeThickness = 1
-            };
+            //var line2 = new InteractiveDataDisplay.WPF.CircleMarkerGraph()
+            ////var line2 = new InteractiveDataDisplay.WPF.LineGraph()
+            //{
+            //    Color = new SolidColorBrush(Colors.Red),
+            //    Description = "End Time",
+            //    StrokeThickness = 1
+            //};
 
             // load data into the lines
             line1.PlotSize(xs1, ys1, sizes);
+            //line1.Plot(xs1, ys1);
             //line2.PlotSize(xs2, ys2, sizes);
+            //line2.Plot(xs2, ys2);
 
             // add lines into the grid
             myGrid.Children.Clear();
@@ -91,22 +111,23 @@ namespace QuickstartInteractiveDataDisplay
             //myGrid.Children.Add(line2);
 
             // customize styling
-            myChart.Title = $"Line Plot ({pointCount:n0} points each)";
-            myChart.BottomTitle = $"Horizontal Axis Label";
-            myChart.LeftTitle = $"Vertical Axis Label";
+            myChart.Title = $"Process Time Plot ({pointCount:n0} points)";
+            myChart.BottomTitle = $"Time (milliseconds)";
+            myChart.LeftTitle = $"Process Time(milliseconds)";
             myChart.IsAutoFitEnabled = true;
             myChart.LegendVisibility = Visibility.Hidden;
+            //myChart.Background = Brushes.DodgerBlue ;
         }
 
-        private double[] RandomWalk(int points = 5, double start = 100, double mult = 50)
-        {
-            // return an array of difting random numbers
-            double[] values = new double[points];
-            values[0] = start;
-            for (int i = 1; i < points; i++)
-                values[i] = values[i - 1] + (Rand.NextDouble() - .5) * mult;
-            return values;
-        }
+        //private double[] RandomWalk(int points = 5, double start = 100, double mult = 50)
+        //{
+        //    // return an array of difting random numbers
+        //    double[] values = new double[points];
+        //    values[0] = start;
+        //    for (int i = 1; i < points; i++)
+        //        values[i] = values[i - 1] + (Rand.NextDouble() - .5) * mult;
+        //    return values;
+        //}
 
         private double[] Consecutive(int points, double offset = 0, double stepSize = 1)
         {

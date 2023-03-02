@@ -30,6 +30,7 @@ namespace QuickstartInteractiveDataDisplay
         public string kernelNameValue { get; set; }
         public long startTimeValue { get; set; }
         public long endTimeValue { get; set; }
+        public long processTimeValue { get; set; }
         public decimal sqWaitAnyValue { get; set; }
         public decimal sqWaveCyclesValue { get; set; }
         public decimal sqCyclesValue { get; set; }

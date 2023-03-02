@@ -20,7 +20,7 @@ namespace QuickstartInteractiveDataDisplay
         public void ProcessDataObject()
         {
             // Read a text file line by line.
-            string[] lines = File.ReadAllLines("./data/288440_results.txt");
+            string[] lines = File.ReadAllLines("D:/Projects/NMSU/GPUPerformanceTest/data/288440_results1.txt");
             List<string[]> rawStringRecords = new List<string[]>();
 
             recordCount = lines.Length / linesPerRecord;
@@ -63,6 +63,11 @@ namespace QuickstartInteractiveDataDisplay
                 dataObject.kernelNameValue = ProcessProperty(line1[16]);
                 dataObject.startTimeValue = Convert.ToInt64(ProcessProperty(line1[17]));
                 dataObject.endTimeValue = Convert.ToInt64(ProcessProperty(line1[18]));
+
+                if ((dataObject.endTimeValue > 0) && (dataObject.startTimeValue > 0))
+                {
+                    dataObject.processTimeValue = Convert.ToInt64(dataObject.endTimeValue - dataObject.startTimeValue);
+                }
 
                 dataObject.sqWaitAnyValue = Convert.ToDecimal(ProcessProperty(record[1]));
                 dataObject.sqWaveCyclesValue = Convert.ToDecimal(ProcessProperty(record[2]));
