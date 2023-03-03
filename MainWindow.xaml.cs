@@ -38,11 +38,17 @@ namespace QuickstartInteractiveDataDisplay
             // Populate x-axis with start times.
             double[] xs1 = new double[objectCount];
             int i = 0;
-            foreach(DataObject dObject in pd.dataObjects)
+            //foreach(DataObject dObject in pd.dataObjects)
+            //{
+            //    xs1[i] = Convert.ToDouble(dObject.startTimeValue);
+            //    i++;
+            //}
+
+            for (int j = 0; j < objectCount; j++)
             {
-                xs1[i] = Convert.ToDouble(dObject.startTimeValue);
-                i++;
+                xs1[j] = Convert.ToDouble(j + 1);
             }
+
 
             // Populate y-axis with process times.
             double[] ys1 = new double[objectCount];
@@ -112,7 +118,7 @@ namespace QuickstartInteractiveDataDisplay
 
             // customize styling
             myChart.Title = $"Process Time Plot ({pointCount:n0} points)";
-            myChart.BottomTitle = $"Time (milliseconds)";
+            myChart.BottomTitle = $"Run Number";
             myChart.LeftTitle = $"Process Time(milliseconds)";
             myChart.IsAutoFitEnabled = true;
             myChart.LegendVisibility = Visibility.Hidden;
